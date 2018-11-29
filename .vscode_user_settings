@@ -1,0 +1,44 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Material Night Eighties",
+    "editor.fontSize": 14,
+    "editor.rulers": [
+        80
+    ],
+    "editor.fontFamily": "SF Mono, Menlo",
+    "files.exclude": {
+        "build-chronos": true,
+        "build-athena": true,
+        "build-mercury": true,
+        "build-hermes": true,
+        "build-iris": true,
+        "build-analytics": true,
+        "build": true,
+        "spectrum-tmuxp.yaml": true,
+        "yarn.lock": true,
+        "cacert": true,
+        "node_modules": true,
+        "admin/node_modules": true,
+        "admin/build": true
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#1A1A1A",
+        "statusBar.noFolderBackground": "#0A0A0D",
+        "statusBar.debuggingBackground": "#511f1f"
+    },
+    "workbench.activityBar.visible": true,
+    "javascript.validate.enable": false,
+    "editor.tabSize": 2,
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.packageManager": "yarn",
+    "window.zoomLevel": 0,
+    "editor.minimap.enabled": false,
+    "explorer.confirmDelete": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.statusBar.feedback.visible": false,
+    "flow.enabled": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.confirmOnExit": true
+}
