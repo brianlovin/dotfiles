@@ -1,0 +1,21 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Brian Lovin
+#	email = brianlovin@Brians-MacBook-Pro.local
+[user]
+	name = Brian Lovin
+	email = briandlovin@gmail.com
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[alias]
+  cob = checkout -b
+	cm = !git add -A && git commit -m
+	bclean = "!f() { git checkout ${1-alpha} && git branch --merged ${1-alpha} | grep -v " ${1-alpha}$" | xargs git branch -d; }; f"
+	alpha = !git checkout alpha && git fetch && git pull origin alpha
+	master = !git checkout master && git fetch && git pull origin master
+	production = !git checkout production && git fetch && git pull origin production
+	st = status	
