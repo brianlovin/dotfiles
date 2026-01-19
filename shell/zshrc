@@ -46,6 +46,9 @@ alias gd="git diff"
 # Editor
 alias code="cursor"
 
+# Finder
+alias finder="open -a Finder"
+
 # Package managers
 alias pn="pnpm"
 
