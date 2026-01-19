@@ -1,0 +1,12 @@
+# SSH Configuration
+# Keys are machine-specific and not synced
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+  AddKeysToAgent yes
+  UseKeychain yes
+
+# Include machine-specific hosts if present
+Include ~/.ssh/config.local

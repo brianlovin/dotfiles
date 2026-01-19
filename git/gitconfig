@@ -1,0 +1,50 @@
+# Shared git config - machine-specific settings in ~/.gitconfig.local
+
+[include]
+	path = ~/.gitconfig.local
+
+[credential]
+	helper = osxkeychain
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[rebase]
+	updateRefs = true
+
+[init]
+	defaultBranch = main
+
+[core]
+	sshCommand = ssh -i ~/.ssh/id_ed25519 -o AddKeysToAgent=yes -o UseKeychain=yes
+
+[alias]
+	# Quick shortcuts
+	st = status
+	co = checkout
+	cob = checkout -b
+
+	# Commit all changes with message
+	cm = !git add -A && git commit -m
+
+	# Switch to main and pull latest
+	main = !git checkout main && git fetch && git pull origin main
+
+	# Undo last commit but keep changes
+	undo = !git reset --soft HEAD^1 && git reset
+
+	# List recent branches
+	recent = branch --sort=-committerdate
+
+	# Amend without editing message
+	amend = commit --amend --no-edit
+
+	# Interactive branch cleanup with fzf
+	cleanup = !git branch --no-color | fzf -m | xargs -I {} git branch -D '{}'
+
+	# Fetch and rebase on remote branch (from pondorasti)
+	autorebase = "!f() { git fetch \"${1:-origin}\" \"${2:-main}\" && git rebase \"${1:-origin}\"/\"${2:-main}\"; }; f"
