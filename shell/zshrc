@@ -31,6 +31,21 @@ setopt SHARE_HISTORY
 export BUN_INSTALL="$HOME/.bun"
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
+# ----- Node (nvm) - lazy loaded -----
+export NVM_DIR="$HOME/.nvm"
+
+# Lazy load nvm - only initialize when node/npm/npx/nvm is first called
+lazy_load_nvm() {
+  unset -f node npm npx nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+
+node() { lazy_load_nvm && node "$@"; }
+npm() { lazy_load_nvm && npm "$@"; }
+npx() { lazy_load_nvm && npx "$@"; }
+nvm() { lazy_load_nvm && nvm "$@"; }
+
 # ----- Aliases -----
 # Navigation
 alias ..="cd .."
