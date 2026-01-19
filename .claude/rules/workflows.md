@@ -5,7 +5,8 @@
 ```bash
 git clone git@github.com:brianlovin/dotfiles.git ~/Developer/dotfiles
 cd ~/Developer/dotfiles
-./install.sh
+./compare.sh  # Preview what will change (dry-run)
+./install.sh  # Apply changes
 
 # Required: create machine-specific git identity
 cp git/gitconfig.local.template ~/.gitconfig.local
@@ -33,8 +34,22 @@ git add Brewfile && git commit -m "Update Brewfile" && git push
 ```bash
 cd ~/Developer/dotfiles
 git pull
-./install.sh  # Re-run to pick up new symlinks
+./compare.sh  # See what changed
+./install.sh  # Apply changes
 ```
+
+## Comparing before install (dry-run)
+
+```bash
+./compare.sh
+```
+
+Shows status for each file:
+- `[OK]` Already symlinked correctly
+- `[NEW]` Will create new symlink
+- `[CONVERT]` Identical file will become symlink
+- `[DIFFERS]` Local file has different content (review before installing)
+- `[MISSING]` Required file not present
 
 ## Machine-specific files
 

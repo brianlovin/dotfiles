@@ -5,6 +5,7 @@ Personal configuration for git, zsh, ssh, and Homebrew packages.
 ## Commands
 
 ```bash
+./compare.sh                              # Dry-run: show what would change
 ./install.sh                              # Create symlinks
 brew bundle --file=~/Developer/dotfiles/Brewfile  # Install packages
 ```
