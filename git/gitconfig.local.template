@@ -1,13 +1,28 @@
 # Machine-specific git config
-# Copy this to ~/.gitconfig.local and fill in your details
+# Copy to ~/.gitconfig.local and uncomment/edit the relevant sections
 
 [user]
 	name = Your Name
 	email = your.email@example.com
 	# signingkey = YOUR_GPG_KEY_ID
 
-[commit]
-	# gpgsign = true
+# ===== macOS =====
+# [credential]
+# 	helper = osxkeychain
+#
+# [core]
+# 	sshCommand = ssh -i ~/.ssh/id_ed25519 -o AddKeysToAgent=yes -o UseKeychain=yes
 
-[gpg]
-	# program = /usr/local/bin/gpg
+# ===== WSL/Linux =====
+# [credential]
+# 	helper = store
+#
+# [core]
+# 	sshCommand = ssh -i ~/.ssh/id_ed25519 -o AddKeysToAgent=yes
+
+# ===== GPG signing (optional) =====
+# [commit]
+# 	gpgsign = true
+#
+# [gpg]
+# 	program = /usr/local/bin/gpg

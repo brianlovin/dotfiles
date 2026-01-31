@@ -1,11 +1,5 @@
 # Shared git config - machine-specific settings in ~/.gitconfig.local
 
-[include]
-	path = ~/.gitconfig.local
-
-[credential]
-	helper = osxkeychain
-
 [pull]
 	rebase = true
 
@@ -18,9 +12,6 @@
 
 [init]
 	defaultBranch = main
-
-[core]
-	sshCommand = ssh -i ~/.ssh/id_ed25519 -o AddKeysToAgent=yes -o UseKeychain=yes
 
 [alias]
 	# Quick shortcuts
@@ -48,3 +39,7 @@
 
 	# Fetch and rebase on remote branch (from pondorasti)
 	autorebase = "!f() { git fetch \"${1:-origin}\" \"${2:-main}\" && git rebase \"${1:-origin}\"/\"${2:-main}\"; }; f"
+
+# Machine-specific overrides (credential helper, SSH, user identity)
+[include]
+	path = ~/.gitconfig.local
