@@ -35,6 +35,12 @@ export BUN_INSTALL="$HOME/.bun"
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS: nvm (lazy loaded for faster shell startup)
   export NVM_DIR="$HOME/.nvm"
+
+  # Add nvm default node bin to PATH so globally-installed binaries work immediately
+  _nvm_default_bin="$NVM_DIR/versions/node/$(ls -1 "$NVM_DIR/versions/node/" 2>/dev/null | sort -V | tail -1)/bin"
+  [ -d "$_nvm_default_bin" ] && export PATH="$_nvm_default_bin:$PATH"
+  unset _nvm_default_bin
+
   lazy_load_nvm() {
     unset -f node npm npx nvm
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -66,6 +72,9 @@ alias code="cursor"
 
 # Finder
 alias finder="open -a Finder"
+
+# Zed editor
+alias zed="open . -a Zed"
 
 # Package managers
 alias pn="pnpm"
